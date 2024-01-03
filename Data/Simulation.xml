@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Simulation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ModelType>Standard</ModelType>
+  <ModelVariant>Basic</ModelVariant>
+  <StartOfWarmingUpPeriod>1981-01-01T00:00:00</StartOfWarmingUpPeriod>
+  <StartOfSimulationPeriod>1982-01-01T00:00:00</StartOfSimulationPeriod>
+  <EndOfSimulationPeriod>1991-12-31T00:00:00</EndOfSimulationPeriod>
+  <SaveResults>true</SaveResults>
+  <SaveDistributedSimulations>false</SaveDistributedSimulations>
+  <ComputeReffInterval>false</ComputeReffInterval>
+  <ComputeReffPeak>false</ComputeReffPeak>
+  <ComputeReffSeason>false</ComputeReffSeason>
+  <ComputeReffWeightedQ>false</ComputeReffWeightedQ>
+  <SeasonalReffStartDay>1</SeasonalReffStartDay>
+  <SeasonalReffEndDay>31</SeasonalReffEndDay>
+  <SeasonalReffStartMonth>January</SeasonalReffStartMonth>
+  <SeasonalReffEndMonth>December</SeasonalReffEndMonth>
+  <ReffInterval>
+    <ReffInterval>
+      <TimeStep>7</TimeStep>
+    </ReffInterval>
+    <ReffInterval>
+      <TimeStep>15</TimeStep>
+    </ReffInterval>
+  </ReffInterval>
+  <PlotPeriod>365</PlotPeriod>
+  <UseOldSUZ>true</UseOldSUZ>
+  <ReffWeights />
+</Simulation>
