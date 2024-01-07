@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from sklearn.metrics import r2_score
+from sklearn.metrics import r2_score, mean_squared_error
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from tqdm import tqdm
 import matplotlib.dates as mdates
@@ -155,8 +155,11 @@ class HBVModel:
 
     def evaluate(self, start_date='1982-01-01'):
         filtered_df = self.df[self.df['Date'] >= pd.to_datetime(start_date)]
+        
         R2 = r2_score(filtered_df['Q Observations'], filtered_df['Q Simulations'])
-        return R2
+        MSE = mean_squared_error(filtered_df['Q Observations'], filtered_df['Q Simulations'])
+    
+        return R2, MSE
     
 
     def plot_daily_average_discharge(self, sim, start_date='1982-01-01'):
@@ -206,7 +209,7 @@ def run_simulation(params_tuple):
     parameters = dict(zip(parameters_bounds_dict.keys(), param_values))
     hbv_model = HBVModel(parameters, monthly_tave, daily_pem, df)
     hbv_model.run_model()
-    R2 = hbv_model.evaluate()
+    R2, MSE = hbv_model.evaluate()
     return i, R2 if R2 >= R2_threshold else None, param_values
 
 

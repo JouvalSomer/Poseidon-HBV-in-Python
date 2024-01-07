@@ -1,3 +1,4 @@
+
 # HBV Hydrological Model Simulation
 
 This project contains a Python implementation of the HBV (Hydrologiska Byråns Vattenbalansavdelning) hydrological model. The model is used for simulating snow accumulation and melt, evapotranspiration, soil moisture, and discharge.
@@ -24,15 +25,29 @@ python Poseidon_paralell.py
 
 Follow the prompts to enter the number of simulations (`num_sim`) and the R2 score threshold (`R2_threshold`).
 
-## Structure
+## Poseidon_optim.py - HBV Model Optimization
 
-- `HBVModel`: A class that encapsulates the HBV model's logic.
-- `run_simulation`: A function that runs a single instance of the model simulation with a given set of parameters, considering the R2 threshold.
-- `main`: The main function of the script, which sets up the simulation parameters, including the R2 threshold, and runs the model simulations in parallel.
+### Description
 
-## Output
+The script `Poseidon_optim.py` extends the functionality of the HBV hydrological model by introducing an optimization layer. It includes the `HydroModelOptimizer` class, which leverages different optimization algorithms (BFGS, GAP) to fine-tune the model parameters. Users can choose between various objective functions (R2, MSE) and apply regularization techniques (L1, L2) to control overfitting.
 
-The script outputs several plots showing the relationship between the model parameters and their performance, as well as plots for different hydrological variables over time. Additionally, it saves the optimal model parameters to a file `optimal_parameters.txt` based on the R2 threshold.
+### Usage
+
+To run the optimization script:
+
+1. Choose the optimization algorithm (BFGS or GAP) and the objective function (R2 or MSE).
+2. Optionally, specify a regularization term (L1 or L2) and its corresponding lambda value.
+3. Execute `Poseidon_optim.py` and follow the on-screen prompts to set the optimization parameters.
+
+The script will output the optimized parameters and generate relevant plots showing the model's performance metrics across iterations.
+
+### Dependencies
+
+Ensure all dependencies listed in `requirements.txt` are installed. Update the file if `Poseidon_optim.py` requires additional packages.
+
+### Output
+
+The script outputs the optimized model parameters and visualizations of the optimization process, including soil moisture dynamics, snow accumulation, and evapotranspiration rates.
 
 ## Author
 
@@ -52,3 +67,7 @@ The first version of the Excel-based HBV model, which this project references, w
 - Direct download link for the Excel model: [Model Spreadsheet](https://amir.eng.uci.edu/downloads/Model_Spreadsheet_Final.xlsx)
 
 Special thanks to the authors of these papers, the creator of the YouTube video, and Prof. Andras Bardossy for their valuable contributions to understanding and simulating hydrological processes.
+
+This Excel model was then further developed by incorporating some more fetures from 3.
+
+3. Seibert, J. (2005). HBV light Version 2: User’s Manual. Stockholm University, Department of Physical Geography and Quaternary Geology.

@@ -3,3 +3,5 @@ numpy
 matplotlib
 sklearn
 tqdm
+scipy
+scikit-optimize
